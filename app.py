@@ -3,21 +3,100 @@ import qrcode
 from PIL import Image
 from io import BytesIO
 
-# 1. Initialize Page Configuration for Mobile & Desktop Layouts
+# 1. Initialize Clean Page Configuration
 st.set_page_config(
     page_title="Srinivas Tanakala | FinTech & AI Hub",
     page_icon="🏢",
     layout="centered"
 )
 
+# 2. Premium Custom CSS (Forces clean hierarchy and dominant header typography)
+st.markdown("""
+    <style>
+    /* Completely removes the native header, search icon, and top empty space */
+    header, [data-testid="stHeader"], .st-emotion-cache-18ni7th {
+        display: none !important;
+        background: transparent !important;
+    }
+    
+    /* Forces the primary app layout container to start right at the pixel top line */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 2rem !important;
+        margin-top: 0px !important;
+    }
+    
+    /* Main profile card container frame */
+    .main-profile-card {
+        background-color: #ffffff;
+        padding: 30px 24px;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        margin-top: 0px !important;
+        margin-bottom: 25px;
+    }
+    
+    /* DOMINANT TYPOGRAPHY: Forces your name and title to be bold and prominent */
+    .profile-title { 
+        color: #0f172a !important; 
+        font-size: 34px !important; 
+        font-weight: 800 !important; 
+        margin-top: 0px !important; 
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.5px !important;
+    }
+    .profile-subtitle { 
+        color: #1e3a8a !important; 
+        font-size: 18px !important; 
+        font-weight: 700 !important; 
+        margin-bottom: 6px !important;
+        line-height: 1.4 !important;
+    }
+    .profile-loc { 
+        color: #475569 !important; 
+        font-size: 14px !important; 
+        font-weight: 600 !important;
+        margin-bottom: 20px !important; 
+    }
+    
+    /* Balanced Category grid layout headers */
+    .hub-column-title {
+        color: #1e3a8a;
+        font-size: 16px;
+        font-weight: 800;
+        border-bottom: 3px solid #1e3a8a;
+        padding-bottom: 6px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .hub-section-badge {
+        font-size: 11px;
+        color: #475569;
+        font-weight: 700;
+        margin-top: 12px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background-color: #f1f5f9;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-# 3. Native Streamlit Layout Setup
+# 3. Clean Profile Header Workspace (Dominates the page with strict typography rules)
 st.markdown('<div class="main-profile-card">', unsafe_allow_html=True)
 st.markdown('<div class="profile-title">Appala Srinivas Tanakala</div>', unsafe_allow_html=True)
 st.markdown('<div class="profile-subtitle">Strategic Financial Leader & AI-Augmented Data Scientist</div>', unsafe_allow_html=True)
 st.markdown('<div class="profile-loc">📍 Visakhapatnam, Andhra Pradesh, India</div>', unsafe_allow_html=True)
 
-# Contact Triggers row
+# Contact Communication buttons
 contact_col1, contact_col2, contact_col3 = st.columns(3)
 with contact_col1:
     st.link_button("📞 Call Me", "tel:+918897415303", use_container_width=True)
@@ -26,7 +105,7 @@ with contact_col2:
 with contact_col3:
     st.link_button("🤝 LinkedIn", "https://linkedin.com", use_container_width=True)
 
-# Portfolio profiles row
+# Portfolios buttons row
 port_col1, port_col2 = st.columns(2)
 with port_col1:
     st.link_button("💻 GitHub Profile", "https://github.com", use_container_width=True)
@@ -34,7 +113,7 @@ with port_col2:
     st.link_button("🥇 Kaggle Workspace", "https://kaggle.com", use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# 4. Clean Grid Configuration for All 24 Deployed Applications
+# 4. Two-Column Workspace Layout for Your 24 Applications
 left_grid, right_grid = st.columns(2)
 
 with left_grid:
@@ -78,16 +157,16 @@ with right_grid:
     st.link_button("📱 Generated QR Code", "https://streamlit.app", use_container_width=True)
     st.link_button("📝 MS Office Training", "https://streamlit.app", use_container_width=True)
 
-# 5. Professional Recognition Section (Builds instant trust with employers)
+# 5. Professional Honors Component
 st.markdown('<div class="hub-column-title">🏆 Honors & Recognition</div>', unsafe_allow_html=True)
 st.success("🥉 **Kaggle Bronze Medal** - Santa 2024: The Perplexity Permutation Puzzle")
 st.success("🥉 **Kaggle Bronze Medal** - Predict Podcast Listening Time Challenge")
 st.info("🎓 **ISRO / IIRS Certification** - AI/ML for Geodata Analysis (September 2024)")
 
-# 6. Self-Generating Master QR Engine
-st.markdown('<div class="hub-column-title">📱 Share Portfolio Ecosystem</div>', unsafe_allow_html=True)
+# 6. Self-Generating Master QR Engine Component
+st.markdown('<div class="hub-column-title">📱 Master Ecosystem Link</div>', unsafe_allow_html=True)
 
-# NOTE: Change this link once your app is live to point directly to your Streamlit App URL!
+# Update this placeholder URL string with your new live app link once Streamlit initializes!
 master_url = "https://linkedin.com"
 
 qr_engine = qrcode.QRCode(version=1, box_size=10, border=1)
@@ -95,14 +174,14 @@ qr_engine.add_data(master_url)
 qr_engine.make(fit=True)
 qr_img = qr_engine.make_image(fill_color="#0f172a", back_color="#ffffff")
 
-# Memory buffer output formatting
+# Build image formatting streams
 buf = BytesIO()
 qr_img.save(buf, format="PNG")
 img_data = buf.getvalue()
 
-# FIXED: Added '2' inside st.columns(2) to prevent layout crashing
 display_col1, display_col2 = st.columns(2)
 with display_col1:
     st.image(img_data, width=150, caption="Scan to open this hub")
 with display_col2:
-    st.download_button(label="📥 Save QR Code Image File", data=img_data, file_name="srinivas_hub_qr.png", mime="image/png")
+    st.write("Open this live dashboard app on your screen during career networking sessions. Observers can scan this QR graphic layer to explore your absolute entire 24-application suite instantly.")
+    st.download_button(label="📥 Save Master QR Image", data=img_data, file_name="srinivas_hub_qr.png", mime="image/png")
