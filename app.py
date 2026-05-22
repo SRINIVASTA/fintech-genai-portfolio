@@ -10,64 +10,6 @@ st.set_page_config(
     layout="centered"
 )
 
-# REPLACE YOUR CURRENT CSS BLOCK IN app.py WITH THIS EXACT ONE:
-st.markdown("""
-    <style>
-    /* 1. Completely removes the native header, search icon, and top empty space */
-    header, [data-testid="stHeader"], .st-emotion-cache-18ni7th {
-        display: none !important;
-        background: transparent !important;
-    }
-    
-    /* 2. Forces the primary app layout container to start right at the pixel top line */
-    .block-container {
-        padding-top: 0rem !important;
-        padding-bottom: 2rem !important;
-        margin-top: 0px !important;
-    }
-    
-    /* 3. Your premium profile card alignment adjustments */
-    .main-profile-card {
-        background-color: #ffffff;
-        padding: 24px;
-        border-radius: 20px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-        text-align: center;
-        margin-top: 0px !important;
-        margin-bottom: 25px;
-    }
-    .profile-title { color: #0f172a; font-size: 28px; font-weight: 700; margin-top: 0px; margin-bottom: 4px; }
-    .profile-subtitle { color: #1e3a8a; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-    .profile-loc { color: #64748b; font-size: 13px; margin-bottom: 15px; }
-    
-    /* Category grid layout headers */
-    .hub-column-title {
-        color: #1e3a8a;
-        font-size: 16px;
-        font-weight: 800;
-        border-bottom: 3px solid #1e3a8a;
-        padding-bottom: 6px;
-        margin-top: 25px;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    .hub-section-badge {
-        font-size: 11px;
-        color: #475569;
-        font-weight: 700;
-        margin-top: 12px;
-        margin-bottom: 6px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        background-color: #f1f5f9;
-        padding: 4px 8px;
-        border-radius: 4px;
-        display: inline-block;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 # 3. Native Streamlit Layout Setup
 st.markdown('<div class="main-profile-card">', unsafe_allow_html=True)
