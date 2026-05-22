@@ -10,16 +10,23 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. Premium Custom CSS Styling (Completely fixed, zero errors, optimized spacing)
+# REPLACE YOUR CURRENT CSS BLOCK IN app.py WITH THIS EXACT ONE:
 st.markdown("""
     <style>
-    /* Forces Streamlit to remove the automatic top margin block completely */
-    .block-container {
-        padding-top: 1.5rem !important;
-        padding-bottom: 2rem !important;
+    /* 1. Completely removes the native header, search icon, and top empty space */
+    header, [data-testid="stHeader"], .st-emotion-cache-18ni7th {
+        display: none !important;
+        background: transparent !important;
     }
     
-    /* Main profile card container frame */
+    /* 2. Forces the primary app layout container to start right at the pixel top line */
+    .block-container {
+        padding-top: 0rem !important;
+        padding-bottom: 2rem !important;
+        margin-top: 0px !important;
+    }
+    
+    /* 3. Your premium profile card alignment adjustments */
     .main-profile-card {
         background-color: #ffffff;
         padding: 24px;
@@ -34,7 +41,7 @@ st.markdown("""
     .profile-subtitle { color: #1e3a8a; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
     .profile-loc { color: #64748b; font-size: 13px; margin-bottom: 15px; }
     
-    /* Layout headers */
+    /* Category grid layout headers */
     .hub-column-title {
         color: #1e3a8a;
         font-size: 16px;
