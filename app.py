@@ -3,19 +3,19 @@ import qrcode
 from PIL import Image
 from io import BytesIO
 
-# 1. Initialize Clean Page Configuration
+# 1. Initialize Page Configuration for Mobile & Desktop Layouts
 st.set_page_config(
     page_title="Srinivas Tanakala | FinTech & AI Hub",
     page_icon="🏢",
     layout="centered"
 )
 
-# 2. Premium Custom CSS (Targets Streamlit internals to completely ERASE the top white box)
+# 2. Premium Custom CSS Styling (Completely fixed, zero errors, optimized spacing)
 st.markdown("""
     <style>
     /* Forces Streamlit to remove the automatic top margin block completely */
     .block-container {
-        padding-top: 2rem !important;
+        padding-top: 1.5rem !important;
         padding-bottom: 2rem !important;
     }
     
@@ -34,7 +34,7 @@ st.markdown("""
     .profile-subtitle { color: #1e3a8a; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
     .profile-loc { color: #64748b; font-size: 13px; margin-bottom: 15px; }
     
-    /* Category grid layout headers */
+    /* Layout headers */
     .hub-column-title {
         color: #1e3a8a;
         font-size: 16px;
@@ -62,13 +62,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 3. Clean Profile Header Workspace (Starts instantly from the top boundary line)
+# 3. Native Streamlit Layout Setup
 st.markdown('<div class="main-profile-card">', unsafe_allow_html=True)
 st.markdown('<div class="profile-title">Appala Srinivas Tanakala</div>', unsafe_allow_html=True)
 st.markdown('<div class="profile-subtitle">Strategic Financial Leader & AI-Augmented Data Scientist</div>', unsafe_allow_html=True)
 st.markdown('<div class="profile-loc">📍 Visakhapatnam, Andhra Pradesh, India</div>', unsafe_allow_html=True)
 
-# Contact Communication buttons
+# Contact Triggers row
 contact_col1, contact_col2, contact_col3 = st.columns(3)
 with contact_col1:
     st.link_button("📞 Call Me", "tel:+918897415303", use_container_width=True)
@@ -77,7 +77,7 @@ with contact_col2:
 with contact_col3:
     st.link_button("🤝 LinkedIn", "https://linkedin.com", use_container_width=True)
 
-# Portfolios buttons row
+# Portfolio profiles row
 port_col1, port_col2 = st.columns(2)
 with port_col1:
     st.link_button("💻 GitHub Profile", "https://github.com", use_container_width=True)
@@ -85,7 +85,7 @@ with port_col2:
     st.link_button("🥇 Kaggle Workspace", "https://kaggle.com", use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# 4. Two-Column Workspace Layout for Your 24 Applications
+# 4. Clean Grid Configuration for All 24 Deployed Applications
 left_grid, right_grid = st.columns(2)
 
 with left_grid:
@@ -129,16 +129,16 @@ with right_grid:
     st.link_button("📱 Generated QR Code", "https://streamlit.app", use_container_width=True)
     st.link_button("📝 MS Office Training", "https://streamlit.app", use_container_width=True)
 
-# 5. Professional Honors Component
+# 5. Professional Recognition Section (Builds instant trust with employers)
 st.markdown('<div class="hub-column-title">🏆 Honors & Recognition</div>', unsafe_allow_html=True)
 st.success("🥉 **Kaggle Bronze Medal** - Santa 2024: The Perplexity Permutation Puzzle")
 st.success("🥉 **Kaggle Bronze Medal** - Predict Podcast Listening Time Challenge")
 st.info("🎓 **ISRO / IIRS Certification** - AI/ML for Geodata Analysis (September 2024)")
 
-# 6. Self-Generating Master QR Engine Component
-st.markdown('<div class="hub-column-title">📱 Master Ecosystem Link</div>', unsafe_allow_html=True)
+# 6. Self-Generating Master QR Engine
+st.markdown('<div class="hub-column-title">📱 Share Portfolio Ecosystem</div>', unsafe_allow_html=True)
 
-# Update this placeholder URL string with your new live app link once Streamlit initializes!
+# NOTE: Change this link once your app is live to point directly to your Streamlit App URL!
 master_url = "https://linkedin.com"
 
 qr_engine = qrcode.QRCode(version=1, box_size=10, border=1)
@@ -146,14 +146,15 @@ qr_engine.add_data(master_url)
 qr_engine.make(fit=True)
 qr_img = qr_engine.make_image(fill_color="#0f172a", back_color="#ffffff")
 
-# Build image formatting streams
+# Memory buffer output formatting
 buf = BytesIO()
 qr_img.save(buf, format="PNG")
 img_data = buf.getvalue()
 
-display_col1, display_col2 = st.columns()
+# FIXED: Added '2' inside st.columns(2) to prevent layout crashing
+display_col1, display_col2 = st.columns(2)
 with display_col1:
     st.image(img_data, width=150, caption="Scan to open this hub")
 with display_col2:
     st.write("Open this live dashboard app on your screen during career networking sessions. Observers can scan this QR graphic layer to explore your absolute entire 24-application suite instantly.")
-    st.download_button(label="📥 Save Master QR Image", data=img_data, file_name="srinivas_hub_qr.png", mime="image/png")
+    st.download_button(label="📥 Save QR Code Image File", data=img_data, file_name="srinivas_hub_qr.png", mime="image/png")
