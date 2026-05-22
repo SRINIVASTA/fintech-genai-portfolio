@@ -1,0 +1,3 @@
+streamlit
+qrcode[pil]
+Pillow
