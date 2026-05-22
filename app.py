@@ -156,5 +156,4 @@ display_col1, display_col2 = st.columns(2)
 with display_col1:
     st.image(img_data, width=150, caption="Scan to open this hub")
 with display_col2:
-    st.write("Open this live dashboard app on your screen during career networking sessions. Observers can scan this QR graphic layer to explore your absolute entire 24-application suite instantly.")
     st.download_button(label="📥 Save QR Code Image File", data=img_data, file_name="srinivas_hub_qr.png", mime="image/png")
