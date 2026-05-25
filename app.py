@@ -139,7 +139,7 @@ with right_grid:
     st.markdown('<div class="hub-column-title">🧠 Generative AI & Operations</div>', unsafe_allow_html=True)
     
     st.markdown('<span class="hub-section-badge">⭐ Advanced GenAI Platforms</span>', unsafe_allow_html=True)
-    st.link_button("💼 AI Recruiter", "https://airecruiter-bjhauwjq4ncyh6p8q7diot.streamlit.app/") 
+    st.link_button("💼 AI Recruiter", "https://airecruiter-coznyq32edyhsdxamapnkd.streamlit.app/") 
     st.link_button("🤖 Multi-Agent Chatbot", "https://multi-agent-chatbot-yv35yj5g7obpbibcxnwrme.streamlit.app")
     st.link_button("🎨 Gemini AI Image Generator", "https://gemini-image-generator-bdyowfxxqb4q5htbrrgjzv.streamlit.app")
 
